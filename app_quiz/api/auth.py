@@ -4,10 +4,10 @@ from sqlalchemy.orm import Session
 from datetime import timedelta
 from jose import jwt
 from passlib.context import CryptContext
-from app.schemas import Token, UserCreate, TokenData
-from app.models import User
-from app.dependencies import get_db
-from app.core.config import settings
+from app_quiz.schemas import Token, UserCreate, TokenData
+from app_quiz.models import User
+from app_quiz.dependencies import get_db
+from app_quiz.core.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 router = APIRouter(tags=["auth"])

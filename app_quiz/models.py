@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, Boolean, Text, ForeignKey, Integer, DateTime, Float, Enum
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-from app.db.base import Base
+from app_quiz.db.base import Base
 from sqlalchemy import JSON
 
 class User(Base):

@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import List
 from uuid import UUID
-from app import schemas, crud, models
-from app.dependencies import get_db, get_current_user
+from app_quiz import schemas, crud, models
+from app_quiz.dependencies import get_db, get_current_user
 
 router = APIRouter(prefix="/quiz", tags=["quiz"])
 

@@ -2,7 +2,7 @@ import random
 from uuid import UUID
 from sqlalchemy.orm import Session
 from typing import List, Tuple
-from app import models, schemas
+from app_quiz import models, schemas
 
 # 사용자별 퀴즈 응시 상태 조회
 def get_user_quiz_status(user_id: UUID, status: str, db: Session):
