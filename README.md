@@ -42,6 +42,7 @@ Quiz 응시 시스템은 관리자와 사용자가 퀴즈를 생성·수정·삭
 | 구분              | 내용                                                       |
 |-------------------|------------------------------------------------------------|
 | Request Body      | UserCreate```json
+```
 {
 
 "email": "user@example.com",
@@ -49,7 +50,7 @@ Quiz 응시 시스템은 관리자와 사용자가 퀴즈를 생성·수정·삭
 "password": "your_password"
 
 }
-
+```
 ### 1.2 로그인 (토큰 발급)
 
 - **경로**: `POST /auth/token`
@@ -58,10 +59,9 @@ Quiz 응시 시스템은 관리자와 사용자가 퀴즈를 생성·수정·삭
 
 | 구분              | 내용                                                       |
 |-------------------|------------------------------------------------------------|
-| Request Form      | `OAuth2PasswordRequestForm`<br>```
-username: user@example.com
-password: your_password
-```        |
+| Request Form      | `OAuth2PasswordRequestForm`<br>                            |
+| username: user@example.com                                                     |       
+| password: your_password                                                        |
 | Response (200)    | `Token` (회원가입 응답과 동일)                              |
 
 ---
@@ -77,7 +77,8 @@ password: your_password
 
 | 구분              | 내용                                                          |
 |-------------------|---------------------------------------------------------------|
-| Request Body      | `QuizCreate`<br>```json
+| Request Body      | `QuizCreate`<br>json
+```
 {
   "title": "Python 기초 테스트",
   "description": "기본 문법 및 자료구조",
@@ -95,9 +96,9 @@ password: your_password
     // ...더 많은 문제
   ]
 }
-```        |
-| Response (200)    | `QuizRead` (생성된 퀴즈 ID 포함)                              |
-
+     
+Response (200)`QuizRead` (생성된 퀴즈 ID 포함)
+```
 ### 2.2 퀴즈 수정
 
 - **경로**: `PUT /admin/quiz/{quiz_id}`
@@ -107,16 +108,17 @@ password: your_password
 | 구분              | 내용           |
 |-------------------|----------------|
 | Path Parameter    | `quiz_id` (UUID) |
-| Request Body      | `QuizBase`<br>```json
+| Request Body      | `QuizBase`<br>json
+
+```
 {
   "title": "새 제목",
   "description": "변경된 설명",
   "question_limit": 5,
   "randomize": false
 }
-```|
-| Response (200)    | `QuizRead`     |
-
+Response (200)`QuizRead`     
+```
 ### 2.3 퀴즈 삭제
 
 - **경로**: `DELETE /admin/quiz/{quiz_id}`
@@ -153,7 +155,8 @@ password: your_password
 | 구분              | 내용                                    |
 |-------------------|-----------------------------------------|
 | Query Parameter   | `status`: `all`/`submitted`/`not_submitted` (기본: `all`) |
-| Response (200)    | `List[QuizStatus]`<br>```json
+| Response (200)    | `List[QuizStatus]`<br>json                                |
+```
 [
   {
     "quiz_id": "...",
@@ -170,7 +173,7 @@ password: your_password
     "score": null
   }
 ]
-```|
+```
 
 ### 3.2 퀴즈 상세 조회
 
@@ -181,7 +184,8 @@ password: your_password
 | 구분              | 내용                                |
 |-------------------|-------------------------------------|
 | Path Parameter    | `quiz_id` (UUID)                    |
-| Response (200)    | `QuizRead`<br>```json
+| Response (200)    | `QuizRead`<br>json                  |
+```
 {
   "id": "...",
   "title": "...",
@@ -189,8 +193,7 @@ password: your_password
   "question_limit": 10,
   "randomize": true
 }
-```|
-
+```
 ### 3.3 퀴즈 응시 시작
 
 - **경로**: `POST /quiz/{quiz_id}/start`
@@ -200,7 +203,8 @@ password: your_password
 | 구분              | 내용                                      |
 |-------------------|-------------------------------------------|
 | Path Parameter    | `quiz_id` (UUID)                          |
-| Response (200)    | `QuizSessionRead`<br>```json
+| Response (200)    | `QuizSessionRead`<br> json                |
+```
 {
   "session_id": "...",
   "questions": [
@@ -208,7 +212,7 @@ password: your_password
     // ...
   ]
 }
-```|
+```
 
 ### 3.4 답안 제출 및 자동 채점
 
@@ -219,7 +223,8 @@ password: your_password
 | 구분              | 내용                                                        |
 |-------------------|-------------------------------------------------------------|
 | Path Parameter    | `quiz_id` (UUID)                                            |
-| Request Body      | `SubmissionCreate`<br>```json
+| Request Body      | `SubmissionCreate`<br>json                               |
+```
 {
   "session_id": "...",
   "answers": [
@@ -234,8 +239,7 @@ password: your_password
   "created_at": "2025-05-13T14:00:00",
   "score": 90.0
 }
-```|
-
+```
 ---
 
 ### 참고
